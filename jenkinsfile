@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git-Clone') {
+            steps {
+                git 'https://github.com/2894-vaishu/java.git'
+            }
+        }
+        stage('Java-Project') {
+            steps {
+                sh '''javac Test.java
+                    java Test.java'''
+            }
+        }
+    }
+}
